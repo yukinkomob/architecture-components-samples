@@ -64,6 +64,7 @@ versions.timber = "4.7.1"
 versions.transition = "1.3.0"
 versions.work = "2.2.0"
 versions.browser = "1.2.0"
+versions.kotpref = "2.10.0"
 ext.versions = versions
 
 def build_versions = [:]
@@ -213,6 +214,11 @@ work.testing = "androidx.work:work-testing:$versions.work"
 work.firebase = "androidx.work:work-firebase:$versions.work"
 work.runtime_ktx = "androidx.work:work-runtime-ktx:$versions.work"
 deps.work = work
+
+def kotpref = [:]
+kotpref.core = "com.chibatching.kotpref:kotpref:${versions.kotpref}"
+kotpref.initializer = "com.chibatching.kotpref:initializer:${versions.kotpref}"
+deps.kotpref = kotpref
 
 ext.deps = deps
 
