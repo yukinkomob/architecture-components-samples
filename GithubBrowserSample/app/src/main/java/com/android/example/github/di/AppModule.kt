@@ -18,6 +18,7 @@ package com.android.example.github.di
 
 import android.app.Application
 import androidx.room.Room
+import com.android.example.github.api.GithubAuthService
 import com.android.example.github.api.GithubService
 import com.android.example.github.db.GithubDb
 import com.android.example.github.db.RepoDao
@@ -40,6 +41,16 @@ class AppModule {
             .addCallAdapterFactory(LiveDataCallAdapterFactory())
             .build()
             .create(GithubService::class.java)
+    }
+
+    @Singleton
+    @Provides
+    fun provideGithubAuthService(): GithubAuthService {
+        return Retrofit.Builder()
+            .baseUrl("https://github.com/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+            .create(GithubAuthService::class.java)
     }
 
     @Singleton
