@@ -36,6 +36,10 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "com.android.example.github.util.GithubTestRunner"
+
+        // For debugging purpose only!!
+        buildConfigField "String", "GITHUB_CLIENT_ID", "\"8d665aec88895c436099\""
+        buildConfigField "String", "GITHUB_CLIENT_SECRET", "\"b0a42dc287ebb6ef217ed78c9aa5944b169a2997\""
     }
     buildTypes {
         debug {
@@ -81,8 +85,10 @@ dependencies {
     implementation deps.lifecycle.livedata_ktx
     implementation deps.lifecycle.runtime
     implementation deps.lifecycle.java8
+    implementation deps.browser
     implementation deps.retrofit.runtime
     implementation deps.retrofit.gson
+    implementation deps.okhttp_logging_interceptor
     implementation deps.glide.runtime
 
     implementation deps.dagger.runtime
@@ -90,8 +96,12 @@ dependencies {
     implementation deps.dagger.android_support
     implementation deps.constraint_layout
     implementation deps.kotlin.stdlib
+    implementation deps.coroutines.android
 
     implementation deps.timber
+
+    implementation deps.kotpref.core
+    implementation deps.kotpref.initializer
 
     kapt deps.dagger.android_support_compiler
     kapt deps.dagger.compiler
